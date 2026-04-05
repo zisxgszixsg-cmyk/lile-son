@@ -3,19 +3,32 @@
    Replaces Discord badges with custom versions
    ======================================== */
 
-/* Hide default badges on YOUR profile only */
-.userPopout-2j1gM4 .profileBadge__2b1f5,
-.layer-2aCOJ3 .profileBadge__2b1f5 {
+/* Hide default badges on YOUR profile only - using more generic selectors */
+.userPopout-xmkDw7 .profileBadge,
+.layerContainer-y8Mi9c .profileBadge,
+.modal-2T4hGb .profileBadge,
+[class*="profileBadge"]:not([class*="profileBadges"]) {
     display: none !important;
 }
 
-/* Container for custom badges */
-.userPopout-2j1gM4 .profileBadges_f89da9,
-.layer-2aCOJ3 .profileBadges_f89da9 {
+/* Also hide individual badge items */
+.userPopout-xmkDw7 [class*="badge-"],
+.layerContainer-y8Mi9c [class*="badge-"],
+.modal-2T4hGb [class*="badge-"] {
+    display: none !important;
+}
+
+/* Container for custom badges - using more generic selectors */
+/* Also targets profile modal (settings), user popout, and chat */
+.userPopout-xmkDw7 .profileBadges,
+.layerContainer-y8Mi9c .profileBadges,
+.modal-2T4hGb .profileBadges,
+[class*="profileBadges"] {
     display: flex !important;
     gap: 6px !important;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 8px !important;
 }
 
 /* ========================================
@@ -153,8 +166,10 @@
    ======================================== */
 
 /* Apply Opal badge (::before) - replaces Nitro */
-.userPopout-2j1gM4 .profileBadges_f89da9::before,
-.layer-2aCOJ3 .profileBadges_f89da9::before {
+.userPopout-xmkDw7 .profileBadges::before,
+.layerContainer-y8Mi9c .profileBadges::before,
+.modal-2T4hGb .profileBadges::before,
+[class*="profileBadges"]::before {
     content: "" !important;
     display: inline-block !important;
     width: 26px !important;
@@ -171,8 +186,10 @@
 }
 
 /* Apply Diamond Boost badge (::after) - replaces Boost */
-.userPopout-2j1gM4 .profileBadges_f89da9::after,
-.layer-2aCOJ3 .profileBadges_f89da9::after {
+.userPopout-xmkDw7 .profileBadges::after,
+.layerContainer-y8Mi9c .profileBadges::after,
+.modal-2T4hGb .profileBadges::after,
+[class*="profileBadges"]::after {
     content: "" !important;
     display: inline-block !important;
     width: 26px !important;
